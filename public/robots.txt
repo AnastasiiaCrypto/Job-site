@@ -1,0 +1,20 @@
+User-agent: *
+Disallow:
+
+Allow: /
+
+User-agent: *
+Disallow: /admin/
+Disallow: /ajax/
+Disallow: /assets/
+Disallow: /css/
+Disallow: /js/
+Disallow: /vendor/
+
+Sitemap: http://jobhunt.global/en/af/sitemaps.xml
+Sitemap: http://jobhunt.global/en/al/sitemaps.xml
+Sitemap: http://jobhunt.global/en/ad/sitemaps.xml
+Sitemap: http://jobhunt.global/en/ai/sitemaps.xml
+Sitemap: http://jobhunt.global/en/ag/sitemaps.xml
+Sitemap: http://jobhunt.global/en/ae/sitemaps.xml
+Sitemap: http://jobhunt.global/en/us/sitemaps.xml

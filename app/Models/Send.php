@@ -1,0 +1,34 @@
+<?php
+
+namespace App\Models;
+use App\Models\Scopes\LocalizedScope;
+use App\Models\Scopes\VerifiedScope;
+use App\Models\Traits\CountryTrait;
+use App\Notifications\ResetPasswordNotification;
+use App\Observer\UserObserver;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Route;
+use Jenssegers\Date\Date;
+use Larapen\Admin\app\Models\Crud;
+use Laravel\Passport\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
+use App\Models\User;
+
+class Send extends BaseModel
+{	
+	protected $table = 'sends';
+	protected $with = ['User', 'To'];
+    protected $fillable = ['user_id', 'to_id', 'receive_id', 'transaction_state_id', 'gross', 'fee', 'net', 'description', 'json_data','currency_id', 'currency_symbol'];
+
+    public function User(){
+    	return $this->belongsTo(\App\Models\User::class);
+    }
+
+    public function To(){
+    	return $this->belongsTo(\App\Models\User::class, 'to_id');
+    }
+
+    public function Transactions(){
+        return $this->morphMany('App\Models\Transaction', 'Transactionable');
+    }
+}
